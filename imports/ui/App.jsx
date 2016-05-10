@@ -21,11 +21,12 @@ export default class App extends Component {
 
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-    Tasks.insert({
+    Meteor.call('tasks.insert', text);
+    /*Tasks.insert({
       text,
       createdAt: new Date(),
       username: Meteor.user().username,
-    });
+    });*/
     ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
 
